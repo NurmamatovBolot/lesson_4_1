@@ -72,7 +72,54 @@ public class Main {
                             bossHealth = bossHealth - critical_damage;
                         }
                         System.out.println("Critical damage: " + critical_damage + " [" + coefficient + "]");
+
+                        int golemAbility = 0;
+                        boolean luckyAbility;
+                        boolean berserkAbility;
+                        boolean thorAbility;
+                        if (bossDefence.equals(heroesAttackType[4])) {
+                            for (int j = 0; j < heroesHealth.length; j++) {
+                                golemAbility = bossDamage;
+                            }
+                            golem = golemAbility;
+                        }
+
+                        if (bossDefence.equals(heroesAttackType[5])) {
+                            luckyAbility = random.nextBoolean();
+                            if (luckyAbility == true) {
+                                lucky = lucky - 0;
+                            } else {
+                                lucky = lucky - bossDamage;
+                            }
+                        }
+
+                        if (bossDefence.equals(heroesAttackType[6])) {
+                            berserkAbility = random.nextBoolean();
+                            if (berserkAbility == true) {
+                                int avoidDamage = random.nextInt(50);
+                                berserk = berserk - 0;
+                                heroesDamage[6] = heroesDamage[6] + avoidDamage;
+                            } else {
+                                berserk = berserk - bossDamage;
+                            }
+                        }
+
+                        if (bossDefence.equals(heroesAttackType[7])) {
+                            thorAbility = random.nextBoolean();
+                            if (thorAbility == true) {
+                                for (int j = 0; j < heroesHealth.length; j++) {
+                                    heroesHealth[j] = heroesHealth[j] - 0;
+                                    if (j == heroesHealth.length) {
+                                        break;
+                                    }
+                                }
+                            } else {
+                                thor = thor - bossDamage;
+                            }
+                        }
                     }
+
+
                 } else {
                     if (bossHealth - heroesDamage[i] < 0) {
                         bossHealth = 0;
@@ -91,50 +138,6 @@ public class Main {
 
             System.out.println("Boss chose: " + bossDefence);
 
-            int golemAbility = 0;
-            boolean luckyAbility;
-            boolean berserkAbility;
-            boolean thorAbility;
-            if (bossDefence.equals(heroesAttackType[4])) {
-                for (int i = 0; i < heroesHealth.length; i++) {
-                    golemAbility = bossDamage;
-                }
-                golem = golemAbility;
-            }
-
-            if (bossDefence.equals(heroesAttackType[5])) {
-                luckyAbility = random.nextBoolean();
-                if (luckyAbility == true) {
-                    lucky = lucky - 0;
-                } else {
-                    lucky = lucky - bossDamage;
-                }
-            }
-
-            if (bossDefence.equals(heroesAttackType[6])) {
-                berserkAbility = random.nextBoolean();
-                if (berserkAbility == true) {
-                    int avoidDamage = random.nextInt(50);
-                    berserk = berserk - 0;
-                    heroesDamage[6] = heroesDamage[6] + avoidDamage;
-                } else {
-                    berserk = berserk - bossDamage;
-                }
-            }
-
-            if (bossDefence.equals(heroesAttackType[7])) {
-                thorAbility = random.nextBoolean();
-                if (thorAbility == true) {
-                    for (int j = 0; j < heroesHealth.length; j++) {
-                        heroesHealth[j] = heroesHealth[j] - 0;
-                        if (j == heroesHealth.length) {
-                            break;
-                        }
-                    }
-                } else {
-                    thor = thor - bossDamage;
-                }
-            }
 
         }
 
